@@ -16,3 +16,23 @@ minted fvextra upquote lineno xstring framed caption
 
 babel-italian
 etoolbox
+geometry
+graphicx
+subfiles
+hyperref
+nameref
+titlesec
+longtable
+xcolor
+titling
+lastpage
+ifthen
+calc
+soulutf8
+contour
+float
+fancyhdr
+multirow
+pgfgantt
+lscape
+subfile
