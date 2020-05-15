@@ -9,7 +9,7 @@
 # See if there is a cached version of TL available
 
 export PATH=/tmp/texlive/bin/x86_64-linux:$PATH
-#if ! command -v texlua > /dev/null; then
+if ! command -v texlua > /dev/null; then
 # Obtain TeX Live
   ## wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
  # wget http://mirrors.rit.edu/CTAN/systems/texlive/tlnet/install-tl-unx.tar.gz
@@ -22,7 +22,7 @@ export PATH=/tmp/texlive/bin/x86_64-linux:$PATH
   ./install-tl --profile=../texlive/texlive.profile --no-verify-downloads
 
   cd ..
-#fi
+fi
 
 # Just including texlua so the cache check above works
 tlmgr install luatex --no-verify-downloads
