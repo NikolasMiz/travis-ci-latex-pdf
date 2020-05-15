@@ -25,13 +25,15 @@ export PATH=/tmp/texlive/bin/x86_64-linux:$PATH
 #fi
 
 # Just including texlua so the cache check above works
-tlmgr install luatex
+tlmgr install luatex --no-verify-downloads
 
 # We specify the directory in which it is located texlive_packages
-tlmgr install $(sed 's/\s*#.*//;/^\s*$/d' texlive/texlive_packages)
+tlmgr install $(sed 's/\s*#.*//;/^\s*$/d' texlive/texlive_packages) --no-verify-downloads
+
 
 # Keep no backups (not required, simply makes cache bigger)
 tlmgr option -- autobackup 0
 
 # Update the TL install but add nothing new
-tlmgr update --self --all --no-auto-install
+tlmgr update --self --all --no-auto-install --no-verify-downloads
+
