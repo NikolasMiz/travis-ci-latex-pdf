@@ -19,7 +19,7 @@ export PATH=/tmp/texlive/bin/x86_64-linux:$PATH
   cd install-tl-20*
 
   # Install a minimal system
-  ./install-tl --profile=../texlive/texlive.profile --no-verify-downloads --no-require-verification
+  ./install-tl --profile=../texlive/texlive.profile --no-verify-downloads
 
   cd ..
 #fi
