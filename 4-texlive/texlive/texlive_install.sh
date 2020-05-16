@@ -13,13 +13,13 @@ if ! command -v texlua > /dev/null; then
 # Obtain TeX Live
   ## wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
  # wget http://mirrors.rit.edu/CTAN/systems/texlive/tlnet/install-tl-unx.tar.gz
-  #wget https://mirrors.rit.edu/CTAN/systems/texlive/tlnet/install-tl-unx.tar.gz
-  wget https://raw.githubusercontent.com/NikolasMiz/travis-ci-latex-pdf/master/4-texlive/install-tl-unx.tar.gz
+  wget https://mirrors.rit.edu/CTAN/systems/texlive/tlnet/install-tl-unx.tar.gz
+ # wget https://raw.githubusercontent.com/NikolasMiz/travis-ci-latex-pdf/master/4-texlive/install-tl-unx.tar.gz
   tar -xzf install-tl-unx.tar.gz
   cd install-tl-20*
 
   # Install a minimal system
-  ./install-tl --profile=../texlive/texlive.profile --no-verify-downloads
+  ./install-tl --profile=../texlive/texlive.profile --repository https://mirrors.rit.edu/CTAN/systems/texlive/tlnet/
 
   cd ..
 fi
@@ -28,11 +28,11 @@ fi
 tlmgr install luatex --no-verify-downloads
 
 # We specify the directory in which it is located texlive_packages
-tlmgr install $(sed 's/\s*#.*//;/^\s*$/d' texlive/texlive_packages) --no-verify-downloads
+tlmgr install $(sed 's/\s*#.*//;/^\s*$/d' texlive/texlive_packages)  --repository https://mirrors.rit.edu/CTAN/systems/texlive/tlnet/
 
 
 # Keep no backups (not required, simply makes cache bigger)
 tlmgr option -- autobackup 0
 
 # Update the TL install but add nothing new
-tlmgr update --self --all --no-auto-install --no-verify-downloads
+tlmgr update --self --all --no-auto-install --no-verify-downloads --repository https://mirrors.rit.edu/CTAN/systems/texlive/tlnet/
